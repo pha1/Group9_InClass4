@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Main</string>
+    <string name="registration_page">Registration</string>
+    <string name="department_page">Department</string>
+    <string name="profile_page">Profile</string>
+    <string name="main_page">Main</string>
+    <string name="welcome">Welcome !!</string>
+    <string name="register">Register</string>
+    <string name="name">Name:</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="email">Email:</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="id">ID:</string>
+    <string name="enter_id">Enter ID</string>
+    <string name="dept">Dept:</string>
+    <string name="select">Select</string>
+    <string name="submit">Submit</string>
+    <string name="comp_sci">Computer Science</string>
+    <string name="info_sys">Software Info. Systems</string>
+    <string name="bio">Bio Informatics</string>
+    <string name="data_sci">Data Science</string>
+    <string name="cancel">Cancel</string>
+</resources>
