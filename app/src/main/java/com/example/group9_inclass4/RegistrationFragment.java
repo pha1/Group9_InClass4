@@ -11,8 +11,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.group9_inclass4.databinding.FragmentRegistrationBinding;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,7 +26,6 @@ import com.example.group9_inclass4.databinding.FragmentRegistrationBinding;
 public class RegistrationFragment extends Fragment {
 
     final String TAG = "test";
-    User user = new User();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,15 +73,62 @@ public class RegistrationFragment extends Fragment {
         return binding.getRoot();
     }
 
+    TextView editName;
+    TextView editEmail;
+    TextView editID;
+    TextView deptChoice;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle(this.title);
 
+        // Submit Button
+        binding.buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Collect Data
+                editName = binding.editName;
+                editEmail = binding.editEmail;
+                editID = binding.editID;
+                deptChoice = binding.deptChoice;
+
+                String name = editName.getText().toString();
+                String email = editEmail.getText().toString();
+                int id = 0;
+                String department = deptChoice.getText().toString();
+
+                // Check if the entered information satisfies the requirements
+                try {
+                    if (name.equals("")) {
+                        Toast.makeText(getActivity(), "", Toast.LENGTH_SHORT).show();
+                    } else if (email.equals("")) {
+                        Toast.makeText(getActivity(), "Please enter an email.", Toast.LENGTH_SHORT).show();
+                    } else if (Integer.parseInt(String.valueOf(editID.getText())) < 0) {
+                        Toast.makeText(getActivity(), "Please enter a valid ID", Toast.LENGTH_SHORT).show();
+                    } else if (department.equals("")) {
+                        Toast.makeText(getActivity(), "Please select a department", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Create the user
+                        id = Integer.parseInt(String.valueOf(editID.getText()));
+                        User user = new User(name, email, id, department);
+                        mListener.passUser(user);
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(), "Please enter a valid ID", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+        // Select Button
         binding.buttonSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: Click to Department Fragment");
+
+                // Go to Department Fragment via Main Activity
+                mListener.changeFragmentListener(getResources().getString(R.string.department_page));
             }
         });
 
@@ -99,6 +149,8 @@ public class RegistrationFragment extends Fragment {
 
     // Interface to listen to button clicks
     public interface IListener{
-        void selectButtonClicked();
+        void changeFragmentListener(String id);
+        void passUser(User user);
+        void passDepartmentChoice(String department);
     }
 }

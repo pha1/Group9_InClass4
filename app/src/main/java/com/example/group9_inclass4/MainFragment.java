@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.group9_inclass4.databinding.FragmentMainBinding;
 
@@ -64,7 +65,9 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentMainBinding.inflate(inflater, container, false);
-        // Inflate the layout for this fragment
+
+        Button registerButton = binding.buttonRegister;
+
         return binding.getRoot();
     }
 
@@ -76,6 +79,9 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: Main to Registration Fragment");
+
+                // Go to register page via Main Activity
+                mListener.changeFragmentListener(getResources().getString(R.string.registration_page));
             }
         });
     }
@@ -101,6 +107,6 @@ public class MainFragment extends Fragment {
 
     // Interface to listen to button clicks
     public interface IListener{
-        void registerButtonClicked();
+        void changeFragmentListener(String fragment);
     }
 }
