@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.ILis
 
     final String TAG = "test";
 
-    Fragment fragment;
+    RegistrationFragment fragment = new RegistrationFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,11 @@ public class MainActivity extends AppCompatActivity implements MainFragment.ILis
 
     @Override
     public void passDepartmentChoice(String department) {
-        getSupportFragmentManager().findFragmentByTag("registration fragment");
+        fragment = (RegistrationFragment) getSupportFragmentManager().findFragmentByTag("registration fragment");
+        if (fragment != null){
+            fragment.updateDepartmentChoice(department);
+            getSupportFragmentManager().popBackStack();
+        }
     }
 
     @Override

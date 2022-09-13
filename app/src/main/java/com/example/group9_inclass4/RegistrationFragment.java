@@ -153,4 +153,8 @@ public class RegistrationFragment extends Fragment {
         void passUser(User user);
         void passDepartmentChoice(String department);
     }
+
+    public void updateDepartmentChoice(String deptChoice) {
+        binding.deptChoice.setText(deptChoice);
+    }
 }
