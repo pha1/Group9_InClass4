@@ -61,6 +61,11 @@ public class MainActivity extends AppCompatActivity implements MainFragment.ILis
     }
 
     @Override
+    public void popFragment() {
+        getSupportFragmentManager().popBackStack();
+    }
+
+    @Override
     public void passDepartmentChoice(String department) {
         fragment = (RegistrationFragment) getSupportFragmentManager().findFragmentByTag("registration fragment");
         if (fragment != null){
