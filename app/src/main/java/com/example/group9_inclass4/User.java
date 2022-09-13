@@ -3,38 +3,38 @@ package com.example.group9_inclass4;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Profile implements Parcelable{
+public class User implements Parcelable{
     String name;
     String email;
     int id;
     String department;
 
-    public Profile(String name, String email, int id, String department){
+    public User(String name, String email, int id, String department){
         this.name = name;
         this.email = email;
         this.id = id;
         this.department = department;
     }
 
-    public Profile() {
+    public User() {
     }
 
-    protected Profile(Parcel in) {
+    protected User(Parcel in) {
         name = in.readString();
         email = in.readString();
         id = in.readInt();
         department = in.readString();
     }
 
-    public static final Parcelable.Creator<Profile> CREATOR = new Parcelable.Creator<Profile>() {
+    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
         @Override
-        public Profile createFromParcel(Parcel in) {
-            return new Profile(in);
+        public User createFromParcel(Parcel in) {
+            return new User(in);
         }
 
         @Override
-        public Profile[] newArray(int size) {
-            return new Profile[size];
+        public User[] newArray(int size) {
+            return new User[size];
         }
     };
 

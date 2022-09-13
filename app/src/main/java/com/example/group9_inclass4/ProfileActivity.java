@@ -21,15 +21,15 @@ public class ProfileActivity extends AppCompatActivity {
             // Check if there is an intent and the key provided matches with the key from the registration activity
             if(getIntent() != null && getIntent().getExtras() != null && getIntent().hasExtra(RegistrationActivity.PROFILE_KEY)){
 
-                // Create a profile object with the corresponding profile information passed on from
+                // Create a user object with the corresponding user information passed on from
                 // registration activity
-                Profile profile = getIntent().getParcelableExtra(RegistrationActivity.PROFILE_KEY);
+                User user = getIntent().getParcelableExtra(RegistrationActivity.PROFILE_KEY);
 
-                // Display the profile information
-                profileName.setText(profile.name);
-                profileEmail.setText(profile.email);
-                profileID.setText(String.valueOf(profile.id));
-                profileDept.setText(profile.department);
+                // Display the user information
+                profileName.setText(user.name);
+                profileEmail.setText(user.email);
+                profileID.setText(String.valueOf(user.id));
+                profileDept.setText(user.department);
         }
     }
 }

@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    // Key used to verify the profile intent
+    // Key used to verify the user intent
     final public static String PROFILE_KEY = "PROFILE";
 
     TextView receivedText;
@@ -77,13 +77,13 @@ public class RegistrationActivity extends AppCompatActivity {
                     } else if (department.equals("")) {
                         Toast.makeText(RegistrationActivity.this, "Please select a department", Toast.LENGTH_SHORT).show();
                     } else {
-                        // Create the profile
+                        // Create the user
                         id = Integer.parseInt(String.valueOf(editID.getText()));
-                        Profile profile = new Profile(name, email, id, department);
+                        User user = new User(name, email, id, department);
 
-                        // Send the profile to profile activity once submitted
+                        // Send the user to user activity once submitted
                         Intent profileIntent = new Intent(RegistrationActivity.this, ProfileActivity.class);
-                        profileIntent.putExtra(PROFILE_KEY, profile);
+                        profileIntent.putExtra(PROFILE_KEY, user);
                         startActivity(profileIntent);
                     }
                 } catch (Exception e) {
