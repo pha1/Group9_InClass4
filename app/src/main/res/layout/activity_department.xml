@@ -45,10 +45,12 @@
     </RadioGroup>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="422dp"
+        android:layout_height="375dp"
         android:gravity="center|bottom"
-        android:weightSum="4">
+        android:weightSum="4"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="356dp">
 
         <Button
             android:id="@+id/buttonCancel"
