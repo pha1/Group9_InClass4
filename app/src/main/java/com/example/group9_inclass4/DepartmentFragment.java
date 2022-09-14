@@ -76,7 +76,7 @@ public class DepartmentFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // When changed, set the department variable to the correct text
-        binding.department_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        binding.departmentGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedID) {
                 if (checkedID == R.id.radioCompSci){
@@ -95,7 +95,7 @@ public class DepartmentFragment extends Fragment {
         });
 
         // Cancel Button
-        binding.buttonCancel.setOnClickListener(new View.onClickListener() {
+        binding.buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mListener.popFragment();
@@ -140,6 +140,5 @@ public class DepartmentFragment extends Fragment {
     // Interface to listen to button clicks
     public interface IListener{
         void changeFragmentListener(String id);
-        void popFragment();
     }
 }

@@ -26,6 +26,10 @@ import org.w3c.dom.Text;
 public class RegistrationFragment extends Fragment {
 
     final String TAG = "test";
+    String name;
+    String email;
+    int id;
+    String department = "";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,7 +73,8 @@ public class RegistrationFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentRegistrationBinding.inflate(inflater, container, false);
-
+        if (!department.equals(""))
+            binding.deptChoice.setText(department);
         return binding.getRoot();
     }
 
@@ -93,10 +98,10 @@ public class RegistrationFragment extends Fragment {
                 editID = binding.editID;
                 deptChoice = binding.deptChoice;
 
-                String name = editName.getText().toString();
-                String email = editEmail.getText().toString();
-                int id = 0;
-                String department = deptChoice.getText().toString();
+                name = editName.getText().toString();
+                email = editEmail.getText().toString();
+                id = 0;
+                department = deptChoice.getText().toString();
 
                 // Check if the entered information satisfies the requirements
                 try {
@@ -113,6 +118,7 @@ public class RegistrationFragment extends Fragment {
                         id = Integer.parseInt(String.valueOf(editID.getText()));
                         User user = new User(name, email, id, department);
                         mListener.passUser(user);
+                        mListener.changeFragmentListener("Profile");
                     }
                 } catch (Exception e) {
                     Toast.makeText(getActivity(), "Please enter a valid ID", Toast.LENGTH_SHORT).show();
@@ -135,6 +141,12 @@ public class RegistrationFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: " + department);
+    }
+
+    @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
@@ -152,9 +164,10 @@ public class RegistrationFragment extends Fragment {
         void changeFragmentListener(String id);
         void passUser(User user);
         void passDepartmentChoice(String department);
+        void popFragment();
     }
 
     public void updateDepartmentChoice(String deptChoice) {
-        binding.deptChoice.setText(deptChoice);
+        this.department = deptChoice;
     }
 }

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.group9_inclass4.databinding.ActivityMainBinding;
 
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.ILis
         fragment = (RegistrationFragment) getSupportFragmentManager().findFragmentByTag("registration fragment");
         if (fragment != null){
             fragment.updateDepartmentChoice(department);
+            Log.d(TAG, "passDepartmentChoice: " + department);
             getSupportFragmentManager().popBackStack();
         }
     }

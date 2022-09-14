@@ -13,14 +13,6 @@
         tools:layout_editor_absoluteX="-53dp"
         tools:layout_editor_absoluteY="-50dp">
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="102dp"
-            android:layout_height="39dp"
-            android:text="@string/select"
-            tools:layout_editor_absoluteX="277dp"
-            tools:layout_editor_absoluteY="187dp" />
-
         <TextView
             android:id="@+id/nameText"
             android:layout_width="wrap_content"
@@ -105,49 +97,6 @@
             app:layout_constraintStart_toStartOf="@+id/profileID"
             app:layout_constraintTop_toTopOf="@+id/textView4" />
 
-        <Button
-            android:layout_width="357dp"
-            android:layout_height="49dp"
-            android:text="@string/submit"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="661dp" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/profileName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/nameText"
-        app:layout_constraintStart_toEndOf="@+id/nameText"
-        app:layout_constraintTop_toTopOf="@+id/nameText" />
-
-    <TextView
-        android:id="@+id/profileEmail3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/profileName"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/profileID3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/profileEmail"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/profileDept3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/profileID"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>
