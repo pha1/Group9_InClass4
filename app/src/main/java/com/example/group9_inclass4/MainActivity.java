@@ -80,9 +80,8 @@ public class MainActivity extends AppCompatActivity implements MainFragment.ILis
             // We first create the Profile Fragment, and then update it's User Object
             // and then replace the current Fragment with the Profile Fragment that was created
             profileFragment = ProfileFragment.newInstance(getResources().getString(R.string.profile_page));
-            if (profileFragment != null) {
-                profileFragment.updateUser(user);
-            }
+            profileFragment.updateUser(user);
+
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.containerView, profileFragment, "profile fragment")
                     .addToBackStack(null)
@@ -117,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.ILis
 
     /**
      * This method passes the User object from Registration Fragment to the Main Activity
-     * @param user
+     * @param user The User Object from Registration Fragment
      */
     @Override
     public void passUser(User user) {

@@ -110,12 +110,21 @@ public class RegistrationFragment extends Fragment {
                 id = 0;
                 department = deptChoice.getText().toString();
 
+                // A String set to Regex conditions for a valid email.
+                // As it has been a while since I've used Regex, I went ahead and looked for an outside source
+                // This is just to give the app a more direct validation check for emails
+                // Lines 118 and 126
+                // Source: https://stackoverflow.com/questions/24969894/android-email-validation-on-edittext
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
                 // Check if the entered information satisfies the requirements
                 try {
                     if (name.equals("")) {
                         Toast.makeText(getActivity(), "", Toast.LENGTH_SHORT).show();
                     } else if (email.equals("")) {
                         Toast.makeText(getActivity(), "Please enter an email.", Toast.LENGTH_SHORT).show();
+                    } else if (!email.trim().matches(emailPattern)){
+                        Toast.makeText(getActivity(), "Please enter a valid email.", Toast.LENGTH_SHORT).show();
                     } else if (Integer.parseInt(String.valueOf(editID.getText())) < 0) {
                         Toast.makeText(getActivity(), "Please enter a valid ID", Toast.LENGTH_SHORT).show();
                     } else if (department.equals("")) {
