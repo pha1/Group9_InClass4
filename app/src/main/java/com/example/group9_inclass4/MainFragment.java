@@ -47,7 +47,6 @@ public class MainFragment extends Fragment {
      * @param title The title of the Fragment to set the Action Bar title
      * @return A new instance of fragment MainFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static MainFragment newInstance(String title) {
         MainFragment fragment = new MainFragment();
         Bundle args = new Bundle();

@@ -38,11 +38,9 @@ public class RegistrationFragment extends Fragment {
     int id;
     String department = "";
 
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM_TITLE = "TITLE";
 
-    // TODO: Rename and change types of parameters
     private String title;
 
     public RegistrationFragment() {
@@ -56,7 +54,6 @@ public class RegistrationFragment extends Fragment {
      * @param title Parameter 1.
      * @return A new instance of fragment RegistrationFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static RegistrationFragment newInstance(String title) {
         RegistrationFragment fragment = new RegistrationFragment();
         Bundle args = new Bundle();
