@@ -1,3 +1,10 @@
+/**
+ * InClass04
+ * Group9_InClass04
+ * Phi Ha
+ * Srinath Dittakavi
+ */
+
 package com.example.group9_inclass4;
 
 import android.content.Context;
@@ -26,7 +33,10 @@ import org.w3c.dom.Text;
  */
 public class ProfileFragment extends Fragment {
 
+    // Used for testing
     final String TAG = "test";
+
+    // User Object that will receive the data from Main Activity
     User user = new User();
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,7 +55,6 @@ public class ProfileFragment extends Fragment {
      * @param title Parameter 1.
      * @return A new instance of fragment ProfileFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static ProfileFragment newInstance(String title) {
         ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
@@ -77,6 +86,8 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Set the Profile Page name
+        getActivity().setTitle(getResources().getString(R.string.profile_page));
         Log.d(TAG, "onViewCreated: User: " + user.name);
 
         // Display TextView of User information
@@ -104,6 +115,7 @@ public class ProfileFragment extends Fragment {
         void changeFragmentListener(String id);
     }
 
+    // Updates the User object of this fragment
     public void updateUser(User user) {
         this.user = user;
     }

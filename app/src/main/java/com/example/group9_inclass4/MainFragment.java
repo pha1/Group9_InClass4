@@ -1,3 +1,10 @@
+/**
+ * InClass04
+ * Group9_InClass04
+ * Phi Ha
+ * Srinath Dittakavi
+ */
+
 package com.example.group9_inclass4;
 
 import android.content.Context;
@@ -26,7 +33,6 @@ public class MainFragment extends Fragment {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM_TITLE = "TITLE";
-
 
     private String title;
 

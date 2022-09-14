@@ -1,3 +1,10 @@
+/**
+ * InClass04
+ * Group9_InClass04
+ * Phi Ha
+ * Srinath Dittakavi
+ */
+
 package com.example.group9_inclass4;
 
 import android.content.Context;
@@ -25,11 +32,9 @@ public class DepartmentFragment extends Fragment {
 
     public static String deptChoice = "";
 
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM_TITLE = "TITLE";
 
-    // TODO: Rename and change types of parameters
     private String title;
 
     public DepartmentFragment() {
@@ -43,7 +48,6 @@ public class DepartmentFragment extends Fragment {
      * @param title Parameter 1.
      * @return A new instance of fragment DepartmentFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static DepartmentFragment newInstance(String title) {
         DepartmentFragment fragment = new DepartmentFragment();
         Bundle args = new Bundle();
@@ -109,8 +113,10 @@ public class DepartmentFragment extends Fragment {
             public void onClick(View view) {
                 if (deptChoice.equals(""))
                 {
+                    // If department choice is not select, display Toast Message
                     Toast.makeText(getActivity(), "Please select a department!", Toast.LENGTH_SHORT).show();
                 } else {
+                    // Pass the department choice to Main Activity
                     mListener.passDepartmentChoice(deptChoice);
                 }
             }
@@ -118,6 +124,7 @@ public class DepartmentFragment extends Fragment {
 
     }
 
+    // When the stack gets popped, the Title will be set accordingly
     @Override
     public void onResume() {
         super.onResume();
