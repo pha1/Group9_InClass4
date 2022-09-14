@@ -18,7 +18,9 @@ public class MainActivity extends AppCompatActivity implements MainFragment.ILis
 
     final String TAG = "test";
 
-    RegistrationFragment fragment = new RegistrationFragment();
+    RegistrationFragment regFragment = new RegistrationFragment();
+    ProfileFragment profileFragment = new ProfileFragment();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +57,18 @@ public class MainActivity extends AppCompatActivity implements MainFragment.ILis
                     .commit();
         }
         if (id.equals(getResources().getString(R.string.profile_page))) {
+            profileFragment = ProfileFragment.newInstance("Profile");
+            if (profileFragment != null) {
+                profileFragment.updateUser(user);
+            }
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.containerView, ProfileFragment.newInstance(getResources().getString(R.string.profile_page)), "profile fragment")
+                    .replace(R.id.containerView, profileFragment, "profile fragment")
                     .addToBackStack(null)
                     .commit();
         }
+    }
+
+    private void If(boolean b) {
     }
 
     @Override
@@ -69,9 +78,9 @@ public class MainActivity extends AppCompatActivity implements MainFragment.ILis
 
     @Override
     public void passDepartmentChoice(String department) {
-        fragment = (RegistrationFragment) getSupportFragmentManager().findFragmentByTag("registration fragment");
-        if (fragment != null){
-            fragment.updateDepartmentChoice(department);
+        regFragment = (RegistrationFragment) getSupportFragmentManager().findFragmentByTag("registration fragment");
+        if (regFragment != null){
+            regFragment.updateDepartmentChoice(department);
             Log.d(TAG, "passDepartmentChoice: " + department);
             getSupportFragmentManager().popBackStack();
         }

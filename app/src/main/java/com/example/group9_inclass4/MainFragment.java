@@ -66,7 +66,7 @@ public class MainFragment extends Fragment {
 
         binding = FragmentMainBinding.inflate(inflater, container, false);
 
-        Button registerButton = binding.buttonRegister;
+        //Button registerButton = binding.buttonRegister;
 
         return binding.getRoot();
     }

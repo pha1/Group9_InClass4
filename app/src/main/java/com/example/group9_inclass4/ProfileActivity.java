@@ -16,7 +16,7 @@ public class ProfileActivity extends AppCompatActivity {
             TextView profileName = findViewById(R.id.profileName);
             TextView profileEmail = findViewById(R.id.profileEmail);
             TextView profileID = findViewById(R.id.profileID);
-            TextView profileDept = findViewById(R.id.profileDept);
+            TextView profileDept = findViewById(R.id.profileDepartmentText);
 
             // Check if there is an intent and the key provided matches with the key from the registration activity
             if(getIntent() != null && getIntent().getExtras() != null && getIntent().hasExtra(RegistrationActivity.PROFILE_KEY)){
